@@ -4,7 +4,7 @@
 ![Babylon-GitHub](https://user-images.githubusercontent.com/102043225/227338716-6b84f35a-d80d-40b5-a00e-9146353e64f1.jpg)
 
 ## Bağlantılar
- ✔️ [Website](https://www.quasar.fi/)<br>
+ ✔️ [Website](https://www.babylonchain.io/)<br>
  ✔️ [Blockchain Explorer](https://babylon.explorers.guru/)<br>
  ✔️ [Doküman](https://docs.babylonchain.io/)<br>
  ✔️ [Discord](https://discord.gg/babylonchain)<br>
