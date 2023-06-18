@@ -50,7 +50,7 @@ aşağıda değiştirmeniz gereken yerleri yazıyorum.
 echo "export BBN_NODENAME=$BBN_NODENAME"  >> $HOME/.bash_profile
 echo "export BBN_WALLET=$BBN_WALLET" >> $HOME/.bash_profile
 echo "export BBN_PORT=11" >> $HOME/.bash_profile
-echo "export BBN_CHAIN_ID=bbn-test1" >> $HOME/.bash_profile
+echo "export BBN_CHAIN_ID=bbn-test-2" >> $HOME/.bash_profile
 source $HOME/.bash_profile
 ```
 
@@ -70,7 +70,7 @@ source $HOME/.bash_profile
 ```shell
 git clone https://github.com/babylonchain/babylon
 cd babylon || return
-git checkout v0.5.0
+git checkout v0.7.2
 make install
 babylond version
 ```
@@ -85,16 +85,14 @@ babylond init --chain-id $BBN_CHAIN_ID $BBN_NODENAME
 
 ## Genesis ve Addrbook Dosyasının Kopyalanması
 ```shell
-curl -L https://github.com/babylonchain/networks/blob/main/bbn-test1/genesis.tar.bz2?raw=true > genesis.tar.bz2
-tar -xjf genesis.tar.bz2
-rm -rf genesis.tar.bz2
+wget https://github.com/babylonchain/networks/raw/main/bbn-test-2/genesis.tar.bz2
+tar -xjf genesis.tar.bz2 && rm genesis.tar.bz2
 mv genesis.json ~/.babylond/config/genesis.json
-curl -s https://snapshots1-testnet.nodejumper.io/babylon-testnet/addrbook.json > $HOME/.babylond/config/addrbook.json
 ```
 
 ## Minimum GAS Ücretinin Ayarlanması
 ```shell
-sed -i 's|^minimum-gas-prices *=.*|minimum-gas-prices = "0ubbn"|g' $HOME/.babylond/config/app.toml
+sed -i 's|^minimum-gas-prices *=.*|minimum-gas-prices = "0.00001ubbn"|g' $HOME/.babylond/config/app.toml
 ```
 
 ## Indexer'i Kapatma (Opsiyonel)
@@ -105,7 +103,7 @@ sed -i -e "s/^indexer *=.*/indexer = \"$indexer\"/" $HOME/.babylond/config/confi
 
 ## SEED ve PEERS Ayarlanması
 ```shell
-SEEDS="03ce5e1b5be3c9a81517d415f65378943996c864@18.207.168.204:26656,a5fabac19c732bf7d814cf22e7ffc23113dc9606@34.238.169.221:26656"
+SEEDS="8da45f9ff83b4f8dd45bbcb4f850999637fbfe3b@seed0.testnet.babylonchain.io:26656,4b1f8a774220ba1073a4e9f4881de218b8a49c99@seed1.testnet.babylonchain.io:26656"
 PEERS=""
 sed -i 's|^seeds *=.*|seeds = "'$SEEDS'"|; s|^persistent_peers *=.*|persistent_peers = "'$PEERS'"|' $HOME/.babylond/config/config.toml
 ```
