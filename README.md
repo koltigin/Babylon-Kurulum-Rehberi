@@ -230,7 +230,7 @@ sudo systemctl restart babylond
    - `website`  `https://anatolianteam.com` yazan yere varsa bir siteniz ya da twitter vb. adresinizi yazabilirsiniz.
    - `security-contact`  E-posta adresiniz.
  ```shell 
-babylond tx staking create-validator \
+babylond tx checkpointing create-validator \
 --amount=1000000ubbn \
 --pubkey=$(babylond tendermint show-validator) \
 --moniker=$BBN_NODENAME \
