@@ -61,7 +61,7 @@ Node ve Cüzdan adımızın `Mehmet` olduğunu varsayalım. Kod aşağıdaki şe
 echo "export BBN_NODENAME=Mehmet"  >> $HOME/.bash_profile
 echo "export BBN_WALLET=Mehmet" >> $HOME/.bash_profile
 echo "export BBN_PORT=11" >> $HOME/.bash_profile
-echo "export BBN_CHAIN_ID=bbn-test1" >> $HOME/.bash_profile
+echo "export BBN_CHAIN_ID=bbn-test-2" >> $HOME/.bash_profile
 source $HOME/.bash_profile
 ```
 
