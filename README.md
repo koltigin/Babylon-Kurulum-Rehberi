@@ -423,7 +423,7 @@ rm /etc/systemd/system/babylond.service && \
 systemctl daemon-reload && \
 cd $HOME && \
 rm -rf .babylond babylon && \
-rm -rf $(which babylond) \
+rm -rf $(which babylond)
 sed -i '/BBN_/d' ~/.bash_profile
 ```
 
