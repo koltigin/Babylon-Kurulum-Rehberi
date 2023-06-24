@@ -85,8 +85,9 @@ babylond init --chain-id $BBN_CHAIN_ID $BBN_NODENAME
 
 ## Genesis ve Addrbook Dosyasının Kopyalanması
 ```shell
-wget https://github.com/babylonchain/networks/raw/main/bbn-test-2/genesis.tar.bz2
-tar -xjf genesis.tar.bz2 && rm genesis.tar.bz2
+curl -L https://github.com/babylonchain/networks/raw/main/bbn-test-2/genesis.tar.bz2 > genesis.tar.bz2
+tar -xjf genesis.tar.bz2
+rm genesis.tar.bz2
 mv genesis.json ~/.babylond/config/genesis.json
 ```
 
