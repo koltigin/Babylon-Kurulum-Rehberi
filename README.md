@@ -1,13 +1,13 @@
 # Babylon Kurulum Rehberi
 
-[Kaynak](https://docs.babylonchain.io/) / [Explorer](https://babylon.explorers.guru/)
 ![Babylon-GitHub](https://user-images.githubusercontent.com/102043225/227338716-6b84f35a-d80d-40b5-a00e-9146353e64f1.jpg)
 
 ## Bağlantılar
  ✔️ [Website](https://www.babylonchain.io/)<br>
  ✔️ [Blockchain Explorer](https://babylon.explorers.guru/)<br>
  ✔️ [Doküman](https://docs.babylonchain.io/)<br>
- ✔️ [Discord](https://discord.gg/babylonchain)<br>
+ ✔️ [GitHub](https://github.com/babylonchain)<br>
+ ✔️ [Discord](https://discord.gg/XcCtr53g8F)<br>
 
 ## Gereksinimler 
 | Bileşenler | Minimum Gereksinimler | **Tavsiye Edilen Gereksinimler** | 
