@@ -74,7 +74,7 @@ git checkout v0.7.2
 make install
 babylond version
 ```
-Versiyon çıktısı `0.0.2-alpha-11` olacak.
+Versiyon çıktısı `v0.7.2` olacak.
 
 ## Uygulamayı Yapılandırma ve Başlatma
 ```shell
