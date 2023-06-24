@@ -200,7 +200,7 @@ source $HOME/.bash_profile
 ```
 
 ## Faucet
-[Babylon Discord](https://discord.gg/babylonchain) adresine giderek `#【🌍】faucet ` kanalından `!faucet bbn-cuzdan-adresi` şeklinde mesaj atarak token istiyoruz. 
+[Babylon Discord](https://discord.gg/XcCtr53g8F) adresine giderek `#【🌍】faucet ` kanalından `!faucet bbn-cuzdan-adresi` şeklinde mesaj atarak token istiyoruz. 
 
 ### Cüzdan Bakiyesine Bakma
 ```
