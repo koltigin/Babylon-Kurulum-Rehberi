@@ -200,6 +200,10 @@ source $HOME/.bash_profile
 ## Faucet
 [Babylon Discord](https://discord.gg/babylonchain) adresine giderek `#【🌍】faucet ` kanalından `!faucet bbn-cuzdan-adresi` şeklinde mesaj atarak token istiyoruz. 
 
+### Cüzdan Bakiyesine Bakma
+```
+babylond query bank balances $BBN_WALLET_ADDRESS
+```
 
 🔴 **BU AŞAMADAN SONRA NODE'UMUZUN EŞLEŞMESİNİ BEKLİYORUZ.**
 
