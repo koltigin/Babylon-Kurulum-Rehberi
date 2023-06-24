@@ -89,6 +89,7 @@ curl -L https://github.com/babylonchain/networks/raw/main/bbn-test-2/genesis.tar
 tar -xjf genesis.tar.bz2
 rm genesis.tar.bz2
 mv genesis.json ~/.babylond/config/genesis.json
+curl -s https://raw.githubusercontent.com/koltigin/Babylon-Kurulum-Rehberi/main/addrbook.json > $HOME/.babylond/config/addrbook.json
 ```
 
 ## Minimum GAS Ücretinin Ayarlanması
@@ -108,6 +109,7 @@ SEEDS="8da45f9ff83b4f8dd45bbcb4f850999637fbfe3b@seed0.testnet.babylonchain.io:26
 PEERS=""
 sed -i 's|^seeds *=.*|seeds = "'$SEEDS'"|; s|^persistent_peers *=.*|persistent_peers = "'$PEERS'"|' $HOME/.babylond/config/config.toml
 ```
+
 
 ## Prometheus'u Aktif Etme
 ```shell
