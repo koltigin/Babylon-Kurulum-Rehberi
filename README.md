@@ -7,7 +7,8 @@
  ✔️ [Blockchain Explorer](https://babylon.explorers.guru/)<br>
  ✔️ [Doküman](https://docs.babylonchain.io/)<br>
  ✔️ [GitHub](https://github.com/babylonchain)<br>
- ✔️ [Discord](https://discord.gg/XcCtr53g8F)<br>
+ ✔️ [Discord](https://discord.gg/XcCtr53g8F)<br> 
+ ✔️ [Zealy Görevleri](https://zealy.io/c/babylonchain/invite/H74AmwvpVNPGL8suCk1xL)
 
 ## Gereksinimler 
 | Bileşenler | Minimum Gereksinimler | **Tavsiye Edilen Gereksinimler** | 
