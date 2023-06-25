@@ -14,7 +14,7 @@
 | ------------ | ------------ | ------------ |
 | CPU |	4 | 4 |
 | RAM	| 8 GB | 16 GB |
-| Storage	| 250 GB SSD | 1 TB SSD |
+| Storage	| 250 GB SSD | 500 GB SSD |
 
 ## Sistemi Güncelleme
 ```shell
