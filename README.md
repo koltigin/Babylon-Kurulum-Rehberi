@@ -353,14 +353,14 @@ babylond tx gov vote 1 yes --from $BBN_WALLET --chain-id=$BBN_CHAIN_ID
 ### Validatore Stake Etme / Delegate Etme
 
 ```
-babylond tx staking delegate $BBN_VALOPER_ADDRESS 1000000ubbn --from=$BBN_WALLET --chain-id=$BBN_CHAIN_ID --gas-prices=0.1ubbn --gas-adjustment=1.5 --gas=auto
+babylond tx epoching delegate $BBN_VALOPER_ADDRESS 1000000ubbn --from=$BBN_WALLET --chain-id=$BBN_CHAIN_ID --gas-prices=0.1ubbn --gas-adjustment=1.5 --gas=auto
 ```
 
 ### Mevcut Validatorden Diğer Validatore Stake Etme / Redelegate Etme
 <srcValidatorAddress>: Mevcut Stake edilen validatorün adresi
 <destValidatorAddress>: Yeni stake edilecek validatorün adresi 
 ```
-babylond tx staking redelegate <srcValidatorAddress> <destValidatorAddress> 1000000ubbn --from=$BBN_WALLET --chain-id=$BBN_CHAIN_ID --gas-prices=0.1ubbn --gas-adjustment=1.5 --gas=auto
+babylond tx epoching redelegate <srcValidatorAddress> <destValidatorAddress> 1000000ubbn --from=$BBN_WALLET --chain-id=$BBN_CHAIN_ID --gas-prices=0.1ubbn --gas-adjustment=1.5 --gas=auto
 ```
 
 ### Ödülleri Çekme
