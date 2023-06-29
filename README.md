@@ -407,7 +407,7 @@ babylond tx staking edit-validator \
 ### Validatoru Jail Durumundan Kurtarma 
 
 ```
-babylond tx slashing unjail --from $BBN_WALLET --chain-id $BBN_CHAIN_ID --gas-prices 0.1ubbn --gas-adjustment 1.5 --gas auto -y
+babylond tx slashing unjail --from $BBN_WALLET --chain-id $BBN_CHAIN_ID --gas-prices 0.00001ubbn --gas-adjustment 1.5 --gas auto -y
 ```
 
 ### Node'u Tamamen Silme 
