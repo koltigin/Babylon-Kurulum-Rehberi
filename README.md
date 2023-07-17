@@ -125,9 +125,7 @@ sed -i.bak -e "s%^address = \"tcp://localhost:1317\"%address = \"tcp://localhost
 
 sed -i.bak -e "s%^node = \"tcp://localhost:26657\"%node = \"tcp://localhost:${BBN_PORT}657\"%" $HOME/.babylond/config/client.toml
 
-
 # Servis Dosyası Oluşturma
-
 sudo tee /etc/systemd/system/babylond.service > /dev/null << EOF
 [Unit]
 Description=Babylon Node
