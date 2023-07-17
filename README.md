@@ -241,13 +241,45 @@ babylond tx checkpointing create-validator \
 
 ## YARARLI KOMUTLAR
 
+## Validator Kontrol
+```
+babylond query staking validator $BBN_VALOPER_ADDRESS
+babylond query staking validators --limit 1000000 -o json | jq '.validators[] | select(.description.moniker=="'$BBN_NODENAME'")' | jq
+```
+
+## Ağ Parametreleri
+```
+babylond q staking params
+babylond q slashing params
+```
+
+## Blokları Kontrol Etme
+```
+babylond q slashing signing-info $(babylond tendermint show-validator)
+```
+
+## Aktif Seti Görüntüleme
+```
+babylond q staking validators -o json --limit=1000 \
+| jq '.validators[] | select(.status=="BOND_STATUS_BONDED")' \
+| jq -r '.tokens + " - " + .description.moniker' \
+| sort -gr | nl
+```
+
+## İnktif Seti Görüntüleme
+```
+babylond q staking validators -o json --limit=1000 \
+| jq '.validators[] | select(.status=="BOND_STATUS_UNBONDED")' \
+| jq -r '.tokens + " - " + .description.moniker' \
+| sort -gr | nl
+```
+
 ## Logları Kontrol Etme 
 ```
 journalctl -fu babylond -o cat
 ```
 
 ### Sistemi Başlatma
-
 ```
 systemctl start babylond
 ```
