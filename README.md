@@ -55,7 +55,6 @@ echo "export BBN_CHAIN_ID=bbn-test-2" >> $HOME/.bash_profile
 source $HOME/.bash_profile
 ```
 
-
 ### Örnek
 Node ve Cüzdan adımızın `Mehmet` olduğunu varsayalım. Kod aşağıdaki şekilde düzenlenecektir. 
 ```shell
@@ -67,7 +66,6 @@ source $HOME/.bash_profile
 ```
 
 ## Babylon'un Kurulması
-
 ```shell
 git clone https://github.com/babylonchain/babylon
 cd babylon || return
@@ -78,47 +76,35 @@ babylond version
 Versiyon çıktısı `v0.7.2` olacak.
 
 ## Uygulamayı Yapılandırma ve Başlatma
+Aşağıdaki kodlarda herhangi bir değişilik yapmadan kopyalayıp yapıştırıyoruz.
 ```shell
 babylond config keyring-backend test
 babylond config chain-id $BBN_CHAIN_ID
 babylond init --chain-id $BBN_CHAIN_ID $BBN_NODENAME
-```
 
-## Genesis ve Addrbook Dosyasının Kopyalanması
-```shell
+# Genesis ve Addrbook Dosyasının Kopyalanması
 curl -L https://github.com/babylonchain/networks/raw/main/bbn-test-2/genesis.tar.bz2 > genesis.tar.bz2
 tar -xjf genesis.tar.bz2
 rm genesis.tar.bz2
 mv genesis.json ~/.babylond/config/genesis.json
 curl -s https://raw.githubusercontent.com/koltigin/Babylon-Kurulum-Rehberi/main/addrbook.json > $HOME/.babylond/config/addrbook.json
-```
 
-## Minimum GAS Ücretinin Ayarlanması
-```shell
+# Minimum GAS Ücretinin Ayarlanması
 sed -i 's|^minimum-gas-prices *=.*|minimum-gas-prices = "0.00001ubbn"|g' $HOME/.babylond/config/app.toml
-```
 
-## Indexer'i Kapatma (Opsiyonel)
-```shell
+# Indexer'i Kapatma (Opsiyonel)
 indexer="null"
 sed -i -e "s/^indexer *=.*/indexer = \"$indexer\"/" $HOME/.babylond/config/config.toml
-```
 
-## SEED ve PEERS Ayarlanması
-```shell
+# SEED ve PEERS Ayarlanması
 SEEDS="8da45f9ff83b4f8dd45bbcb4f850999637fbfe3b@seed0.testnet.babylonchain.io:26656,4b1f8a774220ba1073a4e9f4881de218b8a49c99@seed1.testnet.babylonchain.io:26656"
 PEERS=""
 sed -i 's|^seeds *=.*|seeds = "'$SEEDS'"|; s|^persistent_peers *=.*|persistent_peers = "'$PEERS'"|' $HOME/.babylond/config/config.toml
-```
 
-
-## Prometheus'u Aktif Etme
-```shell
+# Prometheus'u Aktif Etme
 sed -i 's|^prometheus *=.*|prometheus = true|' $HOME/.babylond/config/config.toml
-```
 
-## Pruning'i Ayarlama
-```shell
+# Pruning'i Ayarlama
 pruning="custom"
 pruning_keep_recent="100"
 pruning_keep_every="0"
@@ -127,19 +113,21 @@ sed -i -e "s/^pruning *=.*/pruning = \"$pruning\"/" $HOME/.babylond/config/app.t
 sed -i -e "s/^pruning-keep-recent *=.*/pruning-keep-recent = \"$pruning_keep_recent\"/" $HOME/.babylond/config/app.toml
 sed -i -e "s/^pruning-keep-every *=.*/pruning-keep-every = \"$pruning_keep_every\"/" $HOME/.babylond/config/app.toml
 sed -i -e "s/^pruning-interval *=.*/pruning-interval = \"$pruning_interval\"/" $HOME/.babylond/config/app.toml
-```
 
-## Portları Ayarlama
-```shell
+# app.toml ve config.toml Düzenleme
+sed -i -e "s|^key-name *=.*|key-name = \"$BBN_WALLET\"|" $HOME/.babylond/config/app.toml
+sed -i -e "s|^timeout_commit *=.*|timeout_commit = \"10s\"|" $HOME/.babylond/config/config.toml
+
+# Portları Ayarlama
 sed -i.bak -e "s%^proxy_app = \"tcp://127.0.0.1:26658\"%proxy_app = \"tcp://127.0.0.1:${BBN_PORT}658\"%; s%^laddr = \"tcp://127.0.0.1:26657\"%laddr = \"tcp://127.0.0.1:${BBN_PORT}657\"%; s%^pprof_laddr = \"localhost:6060\"%pprof_laddr = \"localhost:${BBN_PORT}060\"%; s%^laddr = \"tcp://0.0.0.0:26656\"%laddr = \"tcp://0.0.0.0:${BBN_PORT}656\"%; s%^prometheus_listen_addr = \":26660\"%prometheus_listen_addr = \":${BBN_PORT}660\"%; s%^timeout_commit = \"5s\"%timeout_commit = \"10s\"%" $HOME/.babylond/config/config.toml
 
 sed -i.bak -e "s%^address = \"tcp://localhost:1317\"%address = \"tcp://localhost:${BBN_PORT}317\"%; s%^address = \":8080\"%address = \":${BBN_PORT}080\"%; s%^address = \"localhost:9090\"%address = \"localhost:${BBN_PORT}090\"%; s%^address = \"localhost:9091\"%address = \"localhost:${BBN_PORT}091\"%" $HOME/.babylond/config/app.toml
 
 sed -i.bak -e "s%^node = \"tcp://localhost:26657\"%node = \"tcp://localhost:${BBN_PORT}657\"%" $HOME/.babylond/config/client.toml
-```
 
-## Servis Dosyası Oluşturma
-```shell
+
+# Servis Dosyası Oluşturma
+
 sudo tee /etc/systemd/system/babylond.service > /dev/null << EOF
 [Unit]
 Description=Babylon Node
