@@ -386,8 +386,12 @@ babylond tx staking edit-validator \
 --identity=XXXX0000XXXX0000 \
 --website="VARSA WEBSITENIZI YAZABILIRSINIZ" \
 --details="BU BOLUME KENDINIZI TANITAN BIR CUMLE YAZABILIRSINIZ" \
+--gas-prices=0.001ubbn \
+--gas-adjustment=1.5 \
+--gas=auto \
 --chain-id=$BBN_CHAIN_ID \
 --from=$BBN_WALLET
+--yes
 ```
 
 ### Validatoru Jail Durumundan Kurtarma 
