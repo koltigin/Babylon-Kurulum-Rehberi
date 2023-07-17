@@ -141,7 +141,7 @@ WantedBy=multi-user.target
 EOF
 ```
 
-## Snapshot Yükleme (NodeJumper)
+## Snapshot Yükleme ([NodeJumper](https://app.nodejumper.io/babylon-testnet/sync))
 ```shell
 SNAP_NAME=$(curl -s https://snapshots1-testnet.nodejumper.io/babylon-testnet/info.json | jq -r .fileName)
 curl "https://snapshots1-testnet.nodejumper.io/babylon-testnet/${SNAP_NAME}" | lz4 -dc - | tar -xf - -C "$HOME/.babylond"
